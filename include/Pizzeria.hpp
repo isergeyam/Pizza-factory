@@ -6,6 +6,3 @@
 #include "HawaiiBaker.hpp"
 #include "MargaritaBaker.hpp"
 #include "NightStuffFactory.hpp"
-class Pizzeria {
-private:
-};
