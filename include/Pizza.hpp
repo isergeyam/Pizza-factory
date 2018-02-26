@@ -1,7 +1,6 @@
 #ifndef _PIZZA_H_
 #define _PIZZA_H_
 #include <bits/stdc++.h>
-#include <memory>
 enum EFlour { wheat, buckwheat, corn };
 enum ESauce { tomato, curry, cheesy };
 enum EFilling { cheese, meat, vegetable };
