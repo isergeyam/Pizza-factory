@@ -16,6 +16,6 @@ public:
   void set_filling(EFilling m_filling) { this->m_filling = m_filling; }
   void set_sauce(ESauce m_sauce) { this->m_sauce = m_sauce; }
   void set_name(std::string m_name) { this->m_name = m_name; }
-  std::string get_name() { return m_name; }
+  std::string get_name() const { return m_name; }
 };
 #endif
