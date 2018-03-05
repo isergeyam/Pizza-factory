@@ -7,7 +7,7 @@ protected:
 
 public:
   virtual ~IPizzaBaker() = 0;
-  std::shared_ptr<CPizza> get_pizza() { return m_pizza; }
+  std::shared_ptr<CPizza> get_pizza() const { return m_pizza; }
   void create_pizza() { m_pizza.reset(new CPizza); }
   virtual void bake_sauce() = 0;
   virtual void bake_flour() = 0;
