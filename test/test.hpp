@@ -1,4 +1,4 @@
-#include "Pizzeria.hpp"
+#include "../include/Pizzeria.hpp"
 #include <gtest/gtest.h>
 namespace {
 class PizzaTest : public ::testing::Test {
@@ -6,19 +6,21 @@ protected:
   CCashier mycashier;
   CCourier mycourier;
   CCleaner mycleaner;
-  std::shared_ptr<CPizza> mypizza;
-  PizzaTest() : mypizza(new CPizza) { mypizza->set_name("testpizza"); }
+  CCustomBaker cbaker;
+  // std::shared_ptr<CPizza> mypizza;
+  // PizzaTest() : mypizza(new CPizza) { mypizza->set_name("testpizza"); }
+  PizzaTest() { cbaker.set_name("testpizza"); }
 };
 TEST_F(PizzaTest, CourierTest) {
   testing::internal::CaptureStdout();
-  mycourier.deliver(std::shared_ptr<CPizza>(mypizza), "testaddress");
+  mycourier.deliver(cbaker.get_pizza(), "testaddress");
   EXPECT_EQ(testing::internal::GetCapturedStdout(),
             "Delivering pizza testpizza to address testaddress(stub)\n");
 }
 TEST_F(PizzaTest, BakerTest) {
   testing::internal::CaptureStdout();
   CMargaritaBaker mybaker;
-  mybaker.create_pizza();
+  // mybaker.create_pizza();
   mybaker.name_pizza();
   mybaker.bake_pizza();
   EXPECT_EQ(testing::internal::GetCapturedStdout(),
@@ -36,7 +38,7 @@ TEST_F(PizzaTest, CustomBakerTest) {
   testing::internal::CaptureStdout();
   CCustomBaker mybaker(EFlour::wheat, ESauce::cheesy, EFilling::vegetable,
                        "mypizza");
-  mybaker.create_pizza();
+  // mybaker.create_pizza();
   mybaker.name_pizza();
   mybaker.bake_pizza();
   EXPECT_EQ(testing::internal::GetCapturedStdout(),

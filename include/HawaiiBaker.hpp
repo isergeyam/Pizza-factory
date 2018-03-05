@@ -3,9 +3,9 @@
 #include "PizzaBaker.hpp"
 class CHawaiiBaker : public IPizzaBaker {
 public:
-  void name_pizza() override { m_pizza->set_name("Hawaii"); }
-  void bake_flour() override { m_pizza->set_flour(buckwheat); }
-  void bake_sauce() override { m_pizza->set_sauce(curry); }
-  void bake_filling() override { m_pizza->set_filling(meat); }
+  void name_pizza() override { m_name = "Hawaii"; }
+  void bake_flour() override { m_flour = buckwheat; }
+  void bake_sauce() override { m_sauce = curry; }
+  void bake_filling() override { m_filling = meat; }
 };
 #endif
